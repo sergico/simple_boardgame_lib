@@ -62,14 +62,18 @@ public:
 
     inline int decrement(int i_value) {
         return increment(-i_value);
-#if (0)
-        if(m_range.contains(m_value-i_value)) {
-            m_value -= i_value;
-            return i_value;
-        }
-        throw range::OutOfRange();
-#endif
     }
+
+    inline int operator++(int) {
+        this->increment(1);
+        return m_value;
+    }
+
+    inline int operator--(int) {
+        this->decrement(1);
+        return m_value;
+    }
+
 };
 
 }   // namespace sgl

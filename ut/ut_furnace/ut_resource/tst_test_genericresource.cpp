@@ -30,6 +30,7 @@ private slots:
 
     void test_increment();
     void test_decrement();
+    void test_operators();
 
 };
 
@@ -185,6 +186,24 @@ void Test_GenericResource::test_decrement()
     }
 
     QVERIFY_EXCEPTION_THROWN( m_resourceShPtr->decrement(step), sgl::resource::ValueOutOfRange );
+}
+
+void Test_GenericResource::test_operators()
+{
+    int min = 0;
+    int max = 10;
+    int initialValue = 0;
+    const QString resourceName = "oil barrel";
+
+    sgl::GenericResource theResource( sgl::Range<int>(min, max), initialValue, resourceName );
+    int value = theResource.value();
+    QVERIFY(value == 0);
+
+    theResource++; value++;
+    QVERIFY( theResource.value() == value);
+
+    theResource--; value--;
+    QVERIFY( theResource.value() == value);
 }
 
 QTEST_APPLESS_MAIN(Test_GenericResource)
