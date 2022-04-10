@@ -16,7 +16,7 @@
  * a resource has a starting value (not necessarly zero)
  * a resource has a min and max value
  */
-
+namespace sgl {
 
 class GenericResource
 {
@@ -38,6 +38,7 @@ public:
     }
 
     inline int value() const { return m_value; }
+    inline void value(int i_newValue) { m_value = i_newValue; }
     inline const QString name() const { return m_name; }
 
     inline int increment(int i_value) {
@@ -59,6 +60,8 @@ public:
 #endif
     }
 };
+
+}   // namespace sgl
 
 #endif // RESOURCE_H
 

@@ -40,6 +40,7 @@ class Test_Range : public QObject
 private slots:
     void initTestCase();
     void cleanupTestCase();
+    void cleanup();
 
     void test_positiveRange();
     void test_negativeRange();
@@ -53,7 +54,10 @@ void Test_Range::initTestCase() {}
 
 void Test_Range::cleanupTestCase() {}
 
-
+void Test_Range::cleanup()
+{
+    m_rangeShPtr.clear();
+}
 
 void Test_Range::test_positiveRange()
 {
