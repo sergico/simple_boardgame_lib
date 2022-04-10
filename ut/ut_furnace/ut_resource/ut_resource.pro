@@ -14,4 +14,5 @@ TEMPLATE = app
 
 INCLUDEPATH = $$SGL_BASEPATH
 
-SOURCES +=  tst_test_genericresource.cpp
+SOURCES += tst_test_genericresource.cpp
+SOURCES += $$SGL_BASEPATH/resource.cpp

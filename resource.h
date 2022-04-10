@@ -23,6 +23,7 @@ class GenericResource
 {
     sgl::Range<int> m_range;
     int m_value;
+    const int m_initialValue;
     const QString m_name;
 
 public:
@@ -31,6 +32,7 @@ public:
              const QString& i_resourceName) :
         m_range(i_range),
         m_value(i_startingValue),
+        m_initialValue(i_startingValue),
         m_name(i_resourceName)
     {
         if( !m_range.contains(m_value) ) {
@@ -42,7 +44,9 @@ public:
     }
 
     inline int value() const { return m_value; }
-    inline void value(int i_newValue) { m_value = i_newValue; }
+    void value(int i_newValue);
+
+    inline int initialValue() const { return m_initialValue; }
     inline const QString name() const { return m_name; }
 
     inline int increment(int i_value) {
@@ -50,7 +54,10 @@ public:
             m_value += i_value;
             return i_value;
         }
-        throw sgl::range::OutOfRange();
+        else {
+            throw sgl::resource::ValueOutOfRange();
+        }
+
     }
 
     inline int decrement(int i_value) {

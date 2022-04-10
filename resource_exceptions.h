@@ -4,8 +4,9 @@
 #include <exception>
 
 namespace sgl {
-    namespace resource
-    {
+
+namespace resource
+{
 
 class EmptyResourceName : public std::exception
 {
@@ -21,8 +22,14 @@ class InitialValueOutOfRange : public std::exception
     }
 };
 
+class ValueOutOfRange : public std::exception
+{
+    virtual const char* what() const throw() {
+        return "resource value is out of range";
+    }
+};
 
-    }   // namespace resource
+}   // namespace resource
 
 }
 
