@@ -4,6 +4,7 @@
 #include <QString>
 #include <exception>
 
+#include "resource_exceptions.h"
 #include "range.h"
 
 /*
@@ -33,7 +34,10 @@ public:
         m_name(i_resourceName)
     {
         if( !m_range.contains(m_value) ) {
-            throw sgl::range::OutOfRange();
+            throw sgl::resource::InitialValueOutOfRange();
+        }
+        if( i_resourceName.isEmpty() ) {
+            throw sgl::resource::EmptyResourceName();
         }
     }
 
