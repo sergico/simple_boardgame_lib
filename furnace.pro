@@ -9,6 +9,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         main.cpp \
+        playerresources.cpp \
         range.cpp \
         resource.cpp
 
@@ -18,6 +19,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    furnaceResources.h \
+    playerresources.h \
     range.h \
     range_exceptions.h \
     resource.h \

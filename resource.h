@@ -3,9 +3,11 @@
 
 #include <QString>
 #include <exception>
+#include <QSharedPointer>
 
 #include "resource_exceptions.h"
 #include "range.h"
+
 
 /*
  * can a resource be negative? -> policy
@@ -23,8 +25,8 @@ class GenericResource
 {
     sgl::Range<int> m_range;
     int m_value;
-    const int m_initialValue;
-    const QString m_name;
+    int m_initialValue;
+    QString m_name;
 
 public:
     GenericResource(sgl::Range<int> i_range,
@@ -42,6 +44,8 @@ public:
             throw sgl::resource::EmptyResourceName();
         }
     }
+    GenericResource(const GenericResource& m_rhs);
+    GenericResource& operator=(const GenericResource& i_rhs);
 
     inline int value() const { return m_value; }
     void value(int i_newValue);
@@ -74,9 +78,16 @@ public:
         return m_value;
     }
 
+    inline const QString toString() const {
+        return QString("%1:%2").arg(m_name).arg(m_value);
+    }
 };
 
+typedef QSharedPointer<sgl::GenericResource> GenericResourceShPtr;
+
 }   // namespace sgl
+
+
 
 #endif // RESOURCE_H
 
