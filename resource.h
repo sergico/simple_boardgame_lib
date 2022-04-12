@@ -81,6 +81,7 @@ public:
     inline const QString toString() const {
         return QString("%1:%2").arg(m_name).arg(m_value);
     }
+
 };
 
 typedef QSharedPointer<sgl::GenericResource> GenericResourceShPtr;

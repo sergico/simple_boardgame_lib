@@ -5,6 +5,7 @@
 
 #include "resource.h"
 #include "furnaceResources.h"
+#include "resourcedrawer.h"
 
 void printResources(const QList<sgl::GenericResourceShPtr> resources)
 {
@@ -58,6 +59,7 @@ int main(int argc, char *argv[])
 
     testGenericResource();
     testFurnaceResources();
+
 
     return 0;
     //return a.exec();

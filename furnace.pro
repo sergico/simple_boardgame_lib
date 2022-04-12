@@ -11,7 +11,8 @@ SOURCES += \
         main.cpp \
         playerresources.cpp \
         range.cpp \
-        resource.cpp
+        resource.cpp \
+        resourcedrawer.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -24,4 +25,5 @@ HEADERS += \
     range.h \
     range_exceptions.h \
     resource.h \
-    resource_exceptions.h
+    resource_exceptions.h \
+    resourcedrawer.h
