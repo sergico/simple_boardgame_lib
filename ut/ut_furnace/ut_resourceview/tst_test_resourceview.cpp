@@ -2,7 +2,7 @@
 
 // add necessary includes here
 
-#include "resourcedrawer.h"
+#include "resourceViewr.h"
 #include "resource.h"
 
 class Test_ResourceView : public QObject
