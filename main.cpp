@@ -5,9 +5,9 @@
 
 #include "resource.h"
 #include "furnaceResources.h"
-#include "resourcedrawer.h"
-#include "resourceconverter.h"
-#include "resourceproducer.h"
+#include "resourceView.h"
+#include "resourceConverter.h"
+#include "resourceProducer.h"
 #include "furnaceResourceConverters.h"
 
 void printResources(const QList<sgl::GenericResourceShPtr> resources)

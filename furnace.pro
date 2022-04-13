@@ -13,7 +13,7 @@ SOURCES += \
         range.cpp \
         resource.cpp \
         resourceConverter.cpp \
-        resourceViewr.cpp
+        resourceView.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -29,5 +29,5 @@ HEADERS += \
     resource.h \
     resourceConverter.h \
     resourceProducer.h \
-    resourceViewr.h \
+    resourceView.h \
     resource_exceptions.h

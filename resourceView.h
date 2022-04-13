@@ -6,7 +6,11 @@
 
 namespace sgl {
 
-
+/*!
+ * \brief The ResourceViewIface class
+ *  interface to the resource view used as a base class to display / render the resource objects
+ *  the interface implements a NVI (non virtual interface)
+ */
 class ResourceViewIface
 {
     virtual void drawImpl() const = 0;
@@ -21,7 +25,10 @@ public:
     inline const sgl::GenericResourceShPtr resourcePtr() const { return m_resourcePtr; }
 };
 
-
+/*!
+ * \brief The ResourceViewTerminal class
+ *  draw (i.e. print) the resource to stdout
+ */
 class ResourceViewTerminal : public sgl::ResourceViewIface
 {
     virtual void drawImpl() const

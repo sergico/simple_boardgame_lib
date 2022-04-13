@@ -1,4 +1,4 @@
-#include "resourceViewr.h"
+#include "resourceView.h"
 
 using namespace sgl;
 

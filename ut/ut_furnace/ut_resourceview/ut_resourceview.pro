@@ -18,4 +18,4 @@ INCLUDEPATH = $$SGL_BASEPATH
 SOURCES +=  tst_test_resourceview.cpp
 
 SOURCES += $$SGL_BASEPATH/resource.cpp
-SOURCES += $$SGL_BASEPATH/resourcedrawer.cpp
+SOURCES += $$SGL_BASEPATH/resourceView.cpp

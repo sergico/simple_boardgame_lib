@@ -1,7 +1,7 @@
 #ifndef FURNACERESOURCECONVERTERS_H
 #define FURNACERESOURCECONVERTERS_H
 
-#include "resourceconverter.h"
+#include "resourceConverter.h"
 
 namespace furnace {
 
