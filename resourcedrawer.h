@@ -11,7 +11,6 @@ class ResourceViewIface
 {
     virtual void drawImpl() const = 0;
 
-protected:
     sgl::GenericResourceShPtr m_resourcePtr;
 
 public:
@@ -19,15 +18,17 @@ public:
     virtual ~ResourceViewIface();
 
     void draw() const { drawImpl(); }
+    inline const sgl::GenericResourceShPtr resourcePtr() const { return m_resourcePtr; }
 };
+
 
 class ResourceViewTerminal : public sgl::ResourceViewIface
 {
     virtual void drawImpl() const
     {
         qDebug() << QString("--[%1]-[%2]--")
-                    .arg(m_resourcePtr->name())
-                    .arg(m_resourcePtr->value());
+                    .arg(resourcePtr()->name())
+                    .arg(resourcePtr()->value());
     }
 
 public:

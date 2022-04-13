@@ -12,6 +12,7 @@ SOURCES += \
         playerresources.cpp \
         range.cpp \
         resource.cpp \
+        resourceconverter.cpp \
         resourcedrawer.cpp
 
 # Default rules for deployment.
@@ -20,10 +21,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    furnaceResourceConverters.h \
     furnaceResources.h \
     playerresources.h \
     range.h \
     range_exceptions.h \
     resource.h \
     resource_exceptions.h \
-    resourcedrawer.h
+    resourceconverter.h \
+    resourcedrawer.h \
+    resourceproducer.h

@@ -20,6 +20,7 @@ class Range
 {
     T m_min;
     T m_max;
+
 public:
     Range(T i_min, T i_max) :
         m_min(i_min),

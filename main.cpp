@@ -6,6 +6,9 @@
 #include "resource.h"
 #include "furnaceResources.h"
 #include "resourcedrawer.h"
+#include "resourceconverter.h"
+#include "resourceproducer.h"
+#include "furnaceResourceConverters.h"
 
 void printResources(const QList<sgl::GenericResourceShPtr> resources)
 {
@@ -53,12 +56,39 @@ void testFurnaceResources()
     printResources(resourceList);
 }
 
+
+void testResourceConverter()
+{
+    qDebug() << "----------------------------------------";
+    qDebug() << "==== [test resource converter] ====";
+
+    furnace::Coal coal;
+    furnace::IronBar ironBar;
+
+    coal.value(5);
+    ironBar.value(1);
+
+    sgl::ProduceSingleResource<furnace::Coal> produceCoal(coal);
+    produceCoal.convert();
+    qDebug() << "==== after conversion ====";
+    qDebug() << coal.toString() << ironBar.toString();
+
+    furnace::OilBarrel oilBarrel;
+    qDebug() << oilBarrel.toString();
+    sgl::ProduceResources<furnace::OilBarrel> produceOilBarrels(5, oilBarrel);
+    produceOilBarrels.convert();
+    qDebug() << oilBarrel.toString();
+
+}
+
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
     testGenericResource();
     testFurnaceResources();
+
+    testResourceConverter();
 
 
     return 0;
