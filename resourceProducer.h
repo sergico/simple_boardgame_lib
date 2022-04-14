@@ -1,63 +1,40 @@
 #ifndef RESOURCEPRODUCER_H
 #define RESOURCEPRODUCER_H
 
+#include "resource.h"
+
 namespace sgl {
 
-template<class In>
 class ResourceProducerIface
 {
-    In& m_in;
+    sgl::GenericResourceShPtr m_resource;
 
-    virtual void convertImpl() = 0;
+    virtual void produceImpl() = 0;
+    virtual void produceImpl(int i_resourcesToProduce) = 0;
 
 public:
-    ResourceProducerIface(In& io_in) :
-        m_in(io_in)
+    ResourceProducerIface(sgl::GenericResourceShPtr& io_resource) :
+        m_resource(io_resource)
     {}
     virtual ~ResourceProducerIface() {}
 
-    void convert() { convertImpl(); }
+    void produce() { produceImpl(); }
+    void produce(int i_resourceToProduce) { produceImpl(i_resourceToProduce); }
 
-    inline In& in() const { return m_in; }
+    inline sgl::GenericResourceShPtr resource() const { return m_resource; }
 };
 
-/*!
- *  Produces a single resource of the given type \a In
- */
-template <class In>
-class ProduceSingleResource : public sgl::ResourceProducerIface<In>
+
+class ResourcesProducer : public sgl::ResourceProducerIface
 {
-    void convertImpl()
-    {
-        sgl::ResourceProducerIface<In>::in()++;
-    }
+    void produceImpl();
+    void produceImpl(int i_resourcesToProduce);
 
 public:
-    ProduceSingleResource(In& io_in) :
-        sgl::ResourceProducerIface<In>(io_in)
+    ResourcesProducer(sgl::GenericResourceShPtr& io_resource) :
+        sgl::ResourceProducerIface(io_resource)
     {}
-    virtual ~ProduceSingleResource() {}
-};
-
-/*!
- *  Produces \a i_resourceToProduce resources of the given type \a In
- */
-template <class In>
-class ProduceResources : public sgl::ResourceProducerIface<In>
-{
-    int m_resourceToProduce;
-
-    void convertImpl()
-    {
-        sgl::ResourceProducerIface<In>::in().increment(m_resourceToProduce);
-    }
-
-public:
-    ProduceResources(int i_resourcesToProduce, In& io_in) :
-        sgl::ResourceProducerIface<In>(io_in),
-        m_resourceToProduce(i_resourcesToProduce)
-    {}
-    virtual ~ProduceResources() {}
+    virtual ~ResourcesProducer() {}
 };
 
 }   // namespace sgl

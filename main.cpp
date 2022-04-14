@@ -68,16 +68,6 @@ void testResourceConverter()
     coal.value(5);
     ironBar.value(1);
 
-    sgl::ProduceSingleResource<furnace::Coal> produceCoal(coal);
-    produceCoal.convert();
-    qDebug() << "==== after conversion ====";
-    qDebug() << coal.toString() << ironBar.toString();
-
-    furnace::OilBarrel oilBarrel;
-    qDebug() << oilBarrel.toString();
-    sgl::ProduceResources<furnace::OilBarrel> produceOilBarrels(5, oilBarrel);
-    produceOilBarrels.convert();
-    qDebug() << oilBarrel.toString();
 
 }
 

@@ -44,6 +44,8 @@ public:
             throw sgl::resource::EmptyResourceName();
         }
     }
+    virtual ~GenericResource() {}
+
     GenericResource(const GenericResource& m_rhs);
     GenericResource& operator=(const GenericResource& i_rhs);
 
@@ -87,8 +89,6 @@ public:
 typedef QSharedPointer<sgl::GenericResource> GenericResourceShPtr;
 
 }   // namespace sgl
-
-
 
 #endif // RESOURCE_H
 
